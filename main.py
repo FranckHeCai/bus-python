@@ -38,15 +38,18 @@ while vender:
     if opcion == "1":
         cliente = Persona(input("Ingrese su nombre\n"), input("Ingrese su apellido\n"))
         venta =  Ticket(cliente)
-        if venta is None:
-            print("No se pudo realizar la venta")
-        else:
-            bus_barcelona.venta_ticket(venta)
+        bus_barcelona.venta_ticket(venta)
         
     elif opcion == "2":
-        id_ticket=int(input("ingrese id ticket a devolver\n"))
-        #devolucion = Ticket.devolucion_ticket(cliente, id_ticket)
-        bus_barcelona.devolucion_ticket(id_ticket)
+
+        if bus_barcelona.get_asientos_vendidos() == 0:
+            print("No hay tickets vendidos")
+        else:
+            id_ticket=int(input("ingrese id ticket a devolver\n"))
+            if bus_barcelona.devolucion_ticket(id_ticket):
+                print(f"Devolución realizada ID_Ticket: {id_ticket}")
+            else:
+                print("El ticket no existe")
     elif opcion == "3":
         print(bus_barcelona)
 
