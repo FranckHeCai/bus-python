@@ -1,4 +1,4 @@
-from Person import Person
+from Person import Persona
 
 class Ticket:
     def __init__(self, ticket_id, passenger):
