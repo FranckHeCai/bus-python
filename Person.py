@@ -1,6 +1,11 @@
 class Persona:
     def __init__(self, pnombre, papellido):
-        self.__nombre = pnombre
+        self.set_name(pnombre)
+        self.set_surname(papellido)
+    
+    def set_name(self, pnombre):
+        self.__nombre = pnombre 
+    def set_surname(self, papellido):
         self.__apellido = papellido
     
     def get_name(self):
@@ -13,3 +18,4 @@ class Persona:
         self.__nombre = pnombre
         self.__apellido = papellido
 #end class Persona
+
