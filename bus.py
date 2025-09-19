@@ -23,7 +23,6 @@ class Bus:
                     self.lista_asientos.remove(i)
                     break
             self.__asientos_vendidos -= 1
-            print(f"devolución realizada ID_Ticket: {ticket_id}")
             return True
         else:
             return False
@@ -33,9 +32,5 @@ class Bus:
         return f"Total: {self.__asientos_max}\nlibre:{self.__asientos_max - self.__asientos_vendidos}\nvendidos: {self.__asientos_vendidos}"
     
     def get_asientos_vendidos(self):
-        for i in self.lista_asientos:
-            print(i)
-    
-    def asientos_vendidos(self):
         return self.__asientos_vendidos
 #end class Bus
