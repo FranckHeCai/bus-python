@@ -1,6 +1,6 @@
 from Person import Persona
 from Ticket import Ticket  
-from Bus import Bus
+from bus import Bus
 
 
 plazas = int(input("Ingrese el número de asientos\n"))
@@ -38,14 +38,15 @@ while vender:
     if opcion == "1":
         cliente = Persona(input("Ingrese su nombre\n"), input("Ingrese su apellido\n"))
         venta =  Ticket(cliente)
-        bus_barcelona.venta_ticket(venta)
-        print(bus_barcelona.get_asientos_vendidos())
+        if venta is None:
+            print("No se pudo realizar la venta")
+        else:
+            bus_barcelona.venta_ticket(venta)
         
     elif opcion == "2":
-        cliente = Persona(input("Ingrese su nombre\n"), input("Ingrese su apellido\n"))
         id_ticket=int(input("ingrese id ticket a devolver\n"))
         #devolucion = Ticket.devolucion_ticket(cliente, id_ticket)
-        #bus_barcelona.devolucion_ticket(devolucion)
+        bus_barcelona.devolucion_ticket(id_ticket)
     elif opcion == "3":
         print(bus_barcelona)
 

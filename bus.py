@@ -10,17 +10,20 @@ class Bus:
         if self.__asientos_vendidos < self.__asientos_max:
             self.lista_asientos.append(pticket)
             self.__asientos_vendidos += 1
-            print(f"venta realizada ID_Ticket: BUS {pticket.get_ticker_id()}")
+            print(f"venta realizada ID_Ticket: BUS {pticket.get_ticket_id()}")
             return True
         else:
             return False
     
-    def devolucion_ticket(self, pticket):
+    def devolucion_ticket(self, ticket_id):
             
         if self.__asientos_vendidos > 0:
-            self.lista_asientos.remove(pticket)
+            for i in self.lista_asientos:
+                if i.get_ticket_id() == ticket_id:
+                    self.lista_asientos.remove(i)
+                    break
             self.__asientos_vendidos -= 1
-            print(f"devolución realizada ID_Ticket: {pticket.get_ticker_id()}")
+            print(f"devolución realizada ID_Ticket: {ticket_id}")
             return True
         else:
             return False
