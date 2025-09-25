@@ -2,20 +2,38 @@ from Person import Persona
 from Ticket import Ticket  
 from bus import Bus
 
+
 plazas_vendidas = 0
+
 valor_texto = 0
-vender = True
+
+
+def login():
+    while True:
+        usuario = input("Ingresa aquí tu usuario: ")
+        contra = input("Ingresa aquí tu contraseña: ")
+
+        if usuario == contra:
+            print("\nEl usuario no puede ser el mismo que la contraseña.\n")
+        
+        elif usuario == "usuario123" and contra == "mario":
+            print("\nBienvenido\n")
+            return True
+        
+        else:
+            print("\nUsuario o contraseña incorrectos. Inténtalo de nuevo.\n")
+            
+            
+        
+
 
 def plazas_bus():
     plazas = 0
     plazas_invalidas = True
-    while  plazas_invalidas  :
-        plazas = input("Ingrese el número de asientos 1 y 50 \n")
+    while  plazas_invalidas :
+        plazas = str(input("Ingrese el número de asientos\n"))
         if plazas.isdigit():
-            if 0<int(plazas)<=50:
-                plazas_invalidas = False
-            else:
-                print("\n*******se requiere un numero real asignar las plazas*******\n")            
+            plazas_invalidas = False
         else:
             print("\n*******se requiere un numero para poder asignar las plazas*******\n")            
     return plazas
@@ -42,16 +60,24 @@ def mostrar_menu():
     print("0.- Salir.")
     return
 
-plazas = plazas_bus()
-plazas_max = int(plazas)
-bus_barcelona = Bus(plazas_max)   
+vender = login()
+
+
+if vender:
+    plazas = plazas_bus()
+    plazas_max = int(plazas)
+    bus_barcelona = Bus(plazas_max)   
+
+
+
 #mostrar_menu()
 while vender:
     mostrar_menu()
 
     opcion = input()
+    
     if opcion == "1":
-        print("----Compra ticket----")
+        print("----Venta de billetes----")
         cliente = Persona(input("Ingrese su nombre\n"), input("Ingrese su apellido\n"))
         venta =  Ticket(cliente)
         print(bus_barcelona.venta_ticket(venta))
@@ -61,9 +87,12 @@ while vender:
         if bus_barcelona.get_asientos_vendidos() == 0:
             print("No hay tickets vendidos")
         else:
-            id_ticket=int(input("ingrese id ticket a devolver\n"))
-            print(bus_barcelona.devolucion_ticket(id_ticket))
-    
+            id_ticket=input("ingrese id ticket a devolver\n")
+            if id_ticket.isdigit():
+                print("====Se requiere un numero para el id del ticket====")
+                print(bus_barcelona.devolucion_ticket(id_ticket))
+            else:
+                print("====El id del ticket debe ser un numero====")
     elif opcion == "3":
         #bus_barcelona.ticket_list() #ver tickets vendidos id ticket, nombre y apellido
         print("----Estado de la venta----")
