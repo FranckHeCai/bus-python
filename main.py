@@ -2,11 +2,9 @@ from Person import Persona
 from Ticket import Ticket  
 from bus import Bus
 
-
 plazas_vendidas = 0
 
 valor_texto = 0
-
 
 def login():
     while True:
@@ -15,17 +13,11 @@ def login():
 
         if usuario == contra:
             print("\nEl usuario no puede ser el mismo que la contraseña.\n")
-        
         elif usuario == "usuario123" and contra == "mario":
             print("\nBienvenido\n")
             return True
-        
         else:
             print("\nUsuario o contraseña incorrectos. Inténtalo de nuevo.\n")
-            
-            
-        
-
 
 def plazas_bus():
     plazas = 0
@@ -62,13 +54,10 @@ def mostrar_menu():
 
 vender = login()
 
-
 if vender:
     plazas = plazas_bus()
     plazas_max = int(plazas)
     bus_barcelona = Bus(plazas_max)   
-
-
 
 #mostrar_menu()
 while vender:
