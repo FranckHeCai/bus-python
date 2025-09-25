@@ -18,4 +18,4 @@ class Ticket:
         return self.__ticket_id
     
     def __str__(self):
-        return f"Ticket ID: {self.__ticket_id}, Passenger name: {self.__passenger.get_name()}, Passenger surname: {self.__passenger.get_surname()}"
+        return f"Ticket ID: {self.__ticket_id}, name: {self.__passenger.get_name()},  surname: {self.__passenger.get_surname()}"

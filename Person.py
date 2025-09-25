@@ -9,10 +9,10 @@ class Persona:
         self.__apellido = papellido
     
     def get_name(self):
-        return f"Nombre: {self.__nombre}"
+        return self.__nombre
     
     def get_surname(self):
-        return f"Nombre: {self.__apellido}"
+        return self.__apellido
     
     def setting(self, pnombre, papellido):
         self.__nombre = pnombre

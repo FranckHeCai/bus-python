@@ -44,8 +44,10 @@ def mostrar_menu():
 plazas = plazas_bus()
 plazas_max = int(plazas)
 bus_barcelona = Bus(plazas_max)   
-mostrar_menu()
+#mostrar_menu()
 while vender:
+    mostrar_menu()
+
     opcion = input()
     
     if opcion == "1":
@@ -63,6 +65,7 @@ while vender:
             print(bus_barcelona.devolucion_ticket(id_ticket))
     
     elif opcion == "3":
+        #bus_barcelona.ticket_list() #ver tickets vendidos id ticket, nombre y apellido
         print("----Estado de la venta----")
         print(bus_barcelona)
     
