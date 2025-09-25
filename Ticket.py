@@ -12,7 +12,7 @@ class Ticket:
     
     def set_ticket_id(self):
         Ticket.__ticket_id += 1
-        self.__ticket_i = Ticket.__ticket_id
+        self.__ticket_id = Ticket.__ticket_id
 
     def get_ticket_id(self):
         return self.__ticket_id
