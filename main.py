@@ -2,19 +2,20 @@ from Person import Persona
 from Ticket import Ticket  
 from bus import Bus
 
-
 plazas_vendidas = 0
-
 valor_texto = 0
 vender = True
 
 def plazas_bus():
     plazas = 0
     plazas_invalidas = True
-    while  plazas_invalidas :
-        plazas = str(input("Ingrese el número de asientos\n"))
+    while  plazas_invalidas  :
+        plazas = input("Ingrese el número de asientos 1 y 50 \n")
         if plazas.isdigit():
-            plazas_invalidas = False
+            if 0<int(plazas)<=50:
+                plazas_invalidas = False
+            else:
+                print("\n*******se requiere un numero real asignar las plazas*******\n")            
         else:
             print("\n*******se requiere un numero para poder asignar las plazas*******\n")            
     return plazas
@@ -49,9 +50,8 @@ while vender:
     mostrar_menu()
 
     opcion = input()
-    
     if opcion == "1":
-        print("----Venta de billetes----")
+        print("----Compra ticket----")
         cliente = Persona(input("Ingrese su nombre\n"), input("Ingrese su apellido\n"))
         venta =  Ticket(cliente)
         print(bus_barcelona.venta_ticket(venta))
