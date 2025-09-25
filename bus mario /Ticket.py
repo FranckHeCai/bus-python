@@ -6,6 +6,7 @@ class Ticket:
         self.set_passenger(passenger)
         self.set_ticket_id() 
 
+
     def set_passenger(self, passenger):
         self.__passenger = passenger
     

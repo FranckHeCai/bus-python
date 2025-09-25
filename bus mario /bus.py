@@ -18,7 +18,6 @@ class Bus:
     def devolucion_ticket(self, ticket_id):
         if self.__asientos_vendidos > 0:
             for i in self.lista_asientos:
-#debug para ver cual es la compracion de el id que se busca con el id que se esta asignando para poder realizar la eliminacion de usuario 
                 #print(f"id del ticket {i.get_ticket_id()} vs id a devolver {ticket_id}")
                 if i.get_ticket_id() == ticket_id:
                     self.lista_asientos.remove(i)
@@ -31,3 +30,4 @@ class Bus:
     
     def get_asientos_vendidos(self):
         return self.__asientos_vendidos
+#end class Bus
